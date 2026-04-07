@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Smart Web Finder</title>
+	<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+	<div class="app">
+		<header class="top-bar card">
+			<h1>  FIND YOUR WEBS_</h1>
+			<div class="search-row">
+				<input id="searchInput" type="text" aria-label="Search websites by need" placeholder="What do you need? (e.g., video editing, coding, design)" />
+				<button id="searchBtn" aria-label="Search websites">Search</button>
+			</div>
+		</header>
+
+		<main class="layout">
+			<aside class="filters card">
+				<h2>Filters</h2>
+
+				<label for="categoryFilter">Category</label>
+				<select id="categoryFilter" aria-label="Filter by category">
+					<option value="all">All</option>
+					<option value="design">Design</option>
+					<option value="video">Video Editing</option>
+					<option value="coding">Coding</option>
+					<option value="learning">Learning</option>
+					<option value="productivity">Productivity</option>
+				</select>
+
+				<label for="pricingFilter">Pricing</label>
+				<select id="pricingFilter" aria-label="Filter by pricing">
+					<option value="all">All</option>
+					<option value="free">Free</option>
+					<option value="freemium">Freemium</option>
+					<option value="paid">Paid</option>
+				</select>
+
+				<label for="difficultyFilter">Difficulty</label>
+				<select id="difficultyFilter" aria-label="Filter by difficulty">
+					<option value="all">All</option>
+					<option value="beginner">Beginner</option>
+					<option value="intermediate">Intermediate</option>
+					<option value="advanced">Advanced</option>
+				</select>
+
+				<button id="clearBtn" class="secondary" aria-label="Clear all filters">Clear Filters</button>
+			</aside>
+
+			<section class="results-area">
+				<div class="result-header card">
+					<p id="summaryText" aria-live="polite">Showing all websites</p>
+				</div>
+
+				<section class="result-group card">
+					<h3>Free</h3>
+					<div id="freeResults" class="cards-grid"></div>
+				</section>
+
+				<section class="result-group card">
+					<h3>Freemium</h3>
+					<div id="freemiumResults" class="cards-grid"></div>
+				</section>
+
+				<section class="result-group card">
+					<h3>Paid</h3>
+					<div id="paidResults" class="cards-grid"></div>
+				</section>
+			</section>
+		</main>
+	</div>
+
+	<script src="assets/js/script.js"></script>
+</body>
+</html>
