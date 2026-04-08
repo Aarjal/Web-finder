@@ -13,7 +13,7 @@ A lightweight web app for discovering useful websites based on what you need, su
 
 - `index.html` — main page
 - `assets/css/styles.css` — styles
-- `assets/js/script.js` — app logic
+- `assets/js/naya.js` — app logic
 - `assets/img/website.jfif` — image asset
 
 ## How to Run Locally

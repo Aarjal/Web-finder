@@ -3,70 +3,71 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Smart Web Finder</title>
+	<title>Smart Web Finder - Naya</title>
 	<link rel="stylesheet" href="assets/css/styles.css" />
+	<style>
+		.filter-list {
+			display: grid;
+			gap: 8px;
+			margin-top: 6px;
+		}
+
+		.filter-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.92rem;
+			color: var(--muted);
+		}
+
+		.filter-item input[type="checkbox"] {
+			width: auto;
+			margin: 0;
+			padding: 0;
+			accent-color: #6fc2ff;
+			transform: scale(1.05);
+		}
+
+		#resultsList .website-card p {
+			margin: 0;
+			color: var(--muted);
+			line-height: 1.4;
+		}
+	</style>
 </head>
 <body>
 	<div class="app">
 		<header class="top-bar card">
-			<h1>  FIND YOUR WEBS_</h1>
+			<h1>FIND YOUR WEBS_ (NAYA)</h1>
 			<div class="search-row">
-				<input id="searchInput" type="text" aria-label="Search websites by need" placeholder="What do you need? (e.g., video editing, coding, design)" />
+				<input id="queryInput" type="text" placeholder="Search by need (e.g., video, coding, hosting)" aria-label="Search websites by need" />
 				<button id="searchBtn" aria-label="Search websites">Search</button>
 			</div>
 		</header>
 
 		<main class="layout">
 			<aside class="filters card">
-				<h2>Filters</h2>
-
-				<label for="categoryFilter">Category</label>
-				<select id="categoryFilter" aria-label="Filter by category">
-					<option value="all">All</option>
-					<option value="design">Design</option>
-					<option value="video">Video Editing</option>
-					<option value="coding">Coding</option>
-					<option value="learning">Learning</option>
-					<option value="productivity">Productivity</option>
-				</select>
-
-				<label for="pricingFilter">Pricing</label>
-				<select id="pricingFilter" aria-label="Filter by pricing">
-					<option value="all">All</option>
-					<option value="free">Free</option>
-					<option value="freemium">Freemium</option>
-					<option value="paid">Paid</option>
-				</select>
-
-				<label for="difficultyFilter">Difficulty</label>
-				<select id="difficultyFilter" aria-label="Filter by difficulty">
-					<option value="all">All</option>
-					<option value="beginner">Beginner</option>
-					<option value="intermediate">Intermediate</option>
-					<option value="advanced">Advanced</option>
-				</select>
-
-				<button id="clearBtn" class="secondary" aria-label="Clear all filters">Clear Filters</button>
+				<h2>Choose needs</h2>
+				<div class="filter-list" id="needFilters">
+					<label class="filter-item"><input type="checkbox" value="video" /> Video Editing</label>
+					<label class="filter-item"><input type="checkbox" value="coding" /> Learning Coding</label>
+					<label class="filter-item"><input type="checkbox" value="study" /> Study Materials</label>
+					<label class="filter-item"><input type="checkbox" value="photo" /> Photo Editing</label>
+					<label class="filter-item"><input type="checkbox" value="converter" /> Document/File Converter</label>
+					<label class="filter-item"><input type="checkbox" value="hosting-static" /> Free Web Hosting (HTML/CSS/JS)</label>
+					<label class="filter-item"><input type="checkbox" value="hosting-backend" /> Free Web Hosting (with backend)</label>
+				</div>
+				<button id="clearBtn" class="secondary" aria-label="Clear filters">Clear Filters</button>
 			</aside>
 
 			<section class="results-area">
 				<div class="result-header card">
-					<p id="summaryText" aria-live="polite">Showing all websites</p>
+					<p id="summaryText" aria-live="polite">Choose filters and click Search to see websites.</p>
 				</div>
 
 				<section class="result-group card">
-					<h3>Free</h3>
-					<div id="freeResults" class="cards-grid"></div>
-				</section>
-
-				<section class="result-group card">
-					<h3>Freemium</h3>
-					<div id="freemiumResults" class="cards-grid"></div>
-				</section>
-
-				<section class="result-group card">
-					<h3>Paid</h3>
-					<div id="paidResults" class="cards-grid"></div>
+					<h3>Suggested Websites</h3>
+					<div id="resultsList" class="cards-grid"></div>
 				</section>
 			</section>
 		</main>
