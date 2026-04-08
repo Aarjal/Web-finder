@@ -5,73 +5,65 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Smart Web Finder - Naya</title>
 	<link rel="stylesheet" href="assets/css/styles.css" />
-	<style>
-		.filter-list {
-			display: grid;
-			gap: 8px;
-			margin-top: 6px;
-		}
-
-		.filter-item {
-			display: flex;
-			align-items: center;
-			gap: 8px;
-			font-size: 0.92rem;
-			color: var(--muted);
-		}
-
-		.filter-item input[type="checkbox"] {
-			width: auto;
-			margin: 0;
-			padding: 0;
-			accent-color: #6fc2ff;
-			transform: scale(1.05);
-		}
-
-		#resultsList .website-card p {
-			margin: 0;
-			color: var(--muted);
-			line-height: 1.4;
-		}
-	</style>
 </head>
 <body>
 	<div class="app">
-		<header class="top-bar card">
-			<h1>FIND YOUR WEBS_ (NAYA)</h1>
+		<header class="top-bar card1">
+			<h1>FIND YOUR WEBS</h1><br>
 			<div class="search-row">
-				<input id="queryInput" type="text" placeholder="Search by need (e.g., video, coding, hosting)" aria-label="Search websites by need" />
+				<div class="search-field">
+					<input id="queryInput" type="text" placeholder="Search by need (e.g., video, coding, hosting)" aria-label="Search websites by need" />
+					<button id="clearSearchBtn" type="button" class="clear-search-btn" aria-label="Clear search input">×</button>
+				</div>
 				<button id="searchBtn" aria-label="Search websites">Search</button>
 			</div>
 		</header>
 
 		<main class="layout">
-			<aside class="filters card">
+			<section class="filters filters-wide card2">
 				<h2>Choose needs</h2>
+				<p id="summaryText" class="filters-hint" aria-live="polite">Choose filters and click Search to see websites.</p>
 				<div class="filter-list" id="needFilters">
+					<label class="filter-item priority-filter"><input type="checkbox" value="streaming" /> <span>Movies & Series</span></label>
 					<label class="filter-item"><input type="checkbox" value="video" /> Video Editing</label>
 					<label class="filter-item"><input type="checkbox" value="coding" /> Learning Coding</label>
 					<label class="filter-item"><input type="checkbox" value="study" /> Study Materials</label>
+					<label class="filter-item"><input type="checkbox" value="jobs" /> Jobs & Career</label>
+					<label class="filter-item"><input type="checkbox" value="ai" /> AI Tools</label>
+					<label class="filter-item"><input type="checkbox" value="finance" /> Money & Finance</label>
+					<label class="filter-item"><input type="checkbox" value="health" /> Health & Fitness</label>
+					<label class="filter-item"><input type="checkbox" value="productivity" /> Productivity</label>
+					<label class="filter-item"><input type="checkbox" value="communication" /> Communication</label>
+					<label class="filter-item"><input type="checkbox" value="freelancing" /> Freelancing & Business</label>
+					<label class="filter-item"><input type="checkbox" value="content" /> Content Creation</label>
+					<label class="filter-item"><input type="checkbox" value="developer" /> Developer Tools</label>
+					<label class="filter-item"><input type="checkbox" value="design" /> Design</label>
+					<label class="filter-item"><input type="checkbox" value="utilities" /> File Utilities</label>
+					<label class="filter-item"><input type="checkbox" value="travel" /> Travel & Local</label>
+					<label class="filter-item"><input type="checkbox" value="shopping" /> Shopping & Deals</label>
+					<label class="filter-item"><input type="checkbox" value="entertainment" /> Entertainment</label>
+					<label class="filter-item"><input type="checkbox" value="gaming" /> Gaming</label>
 					<label class="filter-item"><input type="checkbox" value="photo" /> Photo Editing</label>
 					<label class="filter-item"><input type="checkbox" value="converter" /> Document/File Converter</label>
 					<label class="filter-item"><input type="checkbox" value="hosting-static" /> Free Web Hosting (HTML/CSS/JS)</label>
 					<label class="filter-item"><input type="checkbox" value="hosting-backend" /> Free Web Hosting (with backend)</label>
 				</div>
-				<button id="clearBtn" class="secondary" aria-label="Clear filters">Clear Filters</button>
-			</aside>
+				<div class="filter-actions">
+					<button id="clearBtn" class="secondary" aria-label="Clear filters">Clear Filters</button>
+					<button id="filterSearchBtn" type="button" class="secondary is-hidden" aria-label="Search by selected filters">Search by filters</button>
+				</div>
+			</section>
 
 			<section class="results-area">
-				<div class="result-header card">
-					<p id="summaryText" aria-live="polite">Choose filters and click Search to see websites.</p>
-				</div>
-
-				<section class="result-group card">
+				<section id="suggestedGroup" class="result-group card is-hidden" aria-hidden="true">
 					<h3>Suggested Websites</h3>
 					<div id="resultsList" class="cards-grid"></div>
 				</section>
 			</section>
 		</main>
 	</div>
+
+	<button id="scrollToResultsBtn" type="button" class="scroll-results-btn is-hidden" aria-label="Scroll to suggested websites">↓</button>
 
 	<script src="assets/js/script.js"></script>
 </body>
