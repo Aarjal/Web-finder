@@ -15,6 +15,11 @@ Users can search with keywords, select filters, and get grouped suggestions with
 	- `↓` scrolls to results
 	- then changes to `↑` to scroll back to top
 
+## Have a look
+-- Select your filters. Get your destination
+<img width="1354" height="608" alt="image" src="https://github.com/user-attachments/assets/fc2a9d73-1882-4794-83d1-29f21cc54adc" />
+
+
 ## Current filter coverage
 
 Includes categories such as:
@@ -40,14 +45,7 @@ This is a static project. No install required.
 1. Clone or download the repository
 2. Open https://webfinder00.netlify.app/
 
-## Update and push changes
 
-
-
-## Deploy with GitHub Pages
-
-
-## Notes
 
 
 
