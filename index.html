@@ -17,36 +17,69 @@
 				</div>
 				<button id="searchBtn" aria-label="Search websites">Search</button>
 			</div>
+			<p id="dataLoadState" class="status-pill is-hidden" aria-live="polite"></p>
 		</header>
 
 		<main class="layout">
 			<section class="filters filters-wide card2">
 				<h2>Choose needs</h2>
 				<p id="summaryText" class="filters-hint" aria-live="polite">Choose filters and click Search to see websites.</p>
-				<div class="filter-list" id="needFilters">
-					<label class="filter-item priority-filter"><input type="checkbox" value="streaming" /> <span>Movies & Series</span></label>
-					<label class="filter-item"><input type="checkbox" value="video" /> Video Editing</label>
-					<label class="filter-item"><input type="checkbox" value="coding" /> Learning Coding</label>
-					<label class="filter-item"><input type="checkbox" value="study" /> Study Materials</label>
-					<label class="filter-item"><input type="checkbox" value="jobs" /> Jobs & Career</label>
-					<label class="filter-item"><input type="checkbox" value="ai" /> AI Tools</label>
-					<label class="filter-item"><input type="checkbox" value="finance" /> Money & Finance</label>
-					<label class="filter-item"><input type="checkbox" value="health" /> Health & Fitness</label>
-					<label class="filter-item"><input type="checkbox" value="productivity" /> Productivity</label>
-					<label class="filter-item"><input type="checkbox" value="communication" /> Communication</label>
-					<label class="filter-item"><input type="checkbox" value="freelancing" /> Freelancing & Business</label>
-					<label class="filter-item"><input type="checkbox" value="content" /> Content Creation</label>
-					<label class="filter-item"><input type="checkbox" value="developer" /> Developer Tools</label>
-					<label class="filter-item"><input type="checkbox" value="design" /> Design</label>
-					<label class="filter-item"><input type="checkbox" value="utilities" /> File Utilities</label>
-					<label class="filter-item"><input type="checkbox" value="travel" /> Travel & Local</label>
-					<label class="filter-item"><input type="checkbox" value="shopping" /> Shopping & Deals</label>
-					<label class="filter-item"><input type="checkbox" value="entertainment" /> Entertainment</label>
-					<label class="filter-item"><input type="checkbox" value="gaming" /> Gaming</label>
-					<label class="filter-item"><input type="checkbox" value="photo" /> Photo Editing</label>
-					<label class="filter-item"><input type="checkbox" value="converter" /> Document/File Converter</label>
-					<label class="filter-item"><input type="checkbox" value="hosting-static" /> Free Web Hosting (HTML/CSS/JS)</label>
-					<label class="filter-item"><input type="checkbox" value="hosting-backend" /> Free Web Hosting (with backend)</label>
+				<div class="filter-groups" id="needFilters">
+					<details class="filter-group">
+						<summary>Entertainment & Media</summary>
+						<div class="filter-list">
+							<label class="filter-item priority-filter"><input type="checkbox" value="streaming" /> <span>Movies & Series</span></label>
+							<label class="filter-item"><input type="checkbox" value="video" /> Video Editing</label>
+							<label class="filter-item"><input type="checkbox" value="ai-video" /> AI Video Makers</label>
+							<label class="filter-item"><input type="checkbox" value="content" /> Content Creation</label>
+							<label class="filter-item"><input type="checkbox" value="entertainment" /> Entertainment</label>
+							<label class="filter-item"><input type="checkbox" value="gaming" /> Gaming</label>
+							<label class="filter-item"><input type="checkbox" value="photo" /> Photo Editing</label>
+						</div>
+					</details>
+
+					<details class="filter-group">
+						<summary>Learning & Career</summary>
+						<div class="filter-list">
+							<label class="filter-item"><input type="checkbox" value="coding" /> Learning Coding</label>
+							<label class="filter-item"><input type="checkbox" value="study" /> Study Materials</label>
+							<label class="filter-item"><input type="checkbox" value="jobs" /> Jobs & Career</label>
+							<label class="filter-item"><input type="checkbox" value="developer" /> Developer Tools</label>
+						</div>
+					</details>
+
+					<details class="filter-group">
+						<summary>Work & Productivity</summary>
+						<div class="filter-list">
+							<label class="filter-item"><input type="checkbox" value="productivity" /> Productivity</label>
+							<label class="filter-item"><input type="checkbox" value="communication" /> Communication</label>
+							<label class="filter-item"><input type="checkbox" value="freelancing" /> Freelancing & Business</label>
+							<label class="filter-item"><input type="checkbox" value="ai" /> AI Tools</label>
+							<label class="filter-item"><input type="checkbox" value="design" /> Design</label>
+							<label class="filter-item"><input type="checkbox" value="drawing" /> Drawing Tools</label>
+						</div>
+					</details>
+
+					<details class="filter-group">
+						<summary>Daily Life</summary>
+						<div class="filter-list">
+							<label class="filter-item"><input type="checkbox" value="finance" /> Money & Finance</label>
+							<label class="filter-item"><input type="checkbox" value="health" /> Health & Fitness</label>
+							<label class="filter-item"><input type="checkbox" value="travel" /> Travel & Local</label>
+							<label class="filter-item"><input type="checkbox" value="mapping" /> Mapping</label>
+							<label class="filter-item"><input type="checkbox" value="shopping" /> Shopping & Deals</label>
+							<label class="filter-item"><input type="checkbox" value="utilities" /> File Utilities</label>
+							<label class="filter-item"><input type="checkbox" value="converter" /> Document/File Converter</label>
+						</div>
+					</details>
+
+					<details class="filter-group">
+						<summary>Hosting</summary>
+						<div class="filter-list">
+							<label class="filter-item"><input type="checkbox" value="hosting-static" /> Free Web Hosting (HTML/CSS/JS)</label>
+							<label class="filter-item"><input type="checkbox" value="hosting-backend" /> Free Web Hosting (with backend)</label>
+						</div>
+					</details>
 				</div>
 				<div class="filter-actions">
 					<button id="clearBtn" class="secondary" aria-label="Clear filters">Clear Filters</button>
@@ -57,6 +90,12 @@
 			<section class="results-area">
 				<section id="suggestedGroup" class="result-group card is-hidden" aria-hidden="true">
 					<h3>Suggested Websites</h3>
+					<p id="analyticsText" class="analytics-text"></p>
+					<div id="activeFiltersBar" class="active-filters-bar is-hidden" aria-live="polite">
+						<div id="activeFilterChips" class="active-filter-chips"></div>
+						<p id="resultBreakdown" class="result-breakdown"></p>
+						<button id="clearAllQuickBtn" type="button" class="secondary">Clear all quickly</button>
+					</div>
 					<div id="resultsList" class="cards-grid"></div>
 				</section>
 			</section>
